@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-ng
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: back-ng
+  template:
+    metadata:
+      labels:
+        app: back-ng
+    spec:
+      containers:
+        - name: back-ng
+          image: arbaazij/back_ng
+          ports:
+            - containerPort: 5000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-ng
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: front-ng
+  template:
+    metadata:
+      labels:
+        app: front-ng
+    spec:
+      containers:
+        - name: front-ng
+          image: arbaazij/front_ng
+          ports:
+            - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+        - name: mongo
+          image: mongo
+          ports:
+            - containerPort: 27017

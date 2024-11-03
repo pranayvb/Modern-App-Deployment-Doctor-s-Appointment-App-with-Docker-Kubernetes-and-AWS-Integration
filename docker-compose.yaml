@@ -1,0 +1,26 @@
+version: '3'
+services:
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build: ./nginx
+    ports:
+      - "3050:80"
+  api:
+    image: arbaazij/backend_ng
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+  client:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"

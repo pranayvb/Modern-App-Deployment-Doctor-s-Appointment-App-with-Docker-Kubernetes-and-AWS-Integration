@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-ng
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: back-ng
+  template:
+    metadata:
+      labels:
+        app: back-ng
+    spec:
+      containers:
+        - name: back-ng
+          image: 977099003828.dkr.ecr.us-east-1.amazonaws.com/arbaazij/back-ng:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-ng
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: front-ng
+  template:
+    metadata:
+      labels:
+        app: front-ng
+    spec:
+      containers:
+        - name: front-ng
+          image: 977099003828.dkr.ecr.us-east-1.amazonaws.com/arbaazij/front-ng:latest
+          ports:
+            - containerPort: 80
