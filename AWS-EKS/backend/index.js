@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors(corsOptions));
 
 const secretsClient = new SecretsManagerClient({ region: 'us-east-1' }); // Specify your region
-const SECRET_ARN = 'arn:aws:secretsmanager:us-east-1:977099003828:secret:prod/doctor/dynamodb-1kqRHF'; // Replace with your actual secret ARN
+const SECRET_ARN = 'secrets-arn'; // Replace with your actual secret ARN
 
 // Route to check if the backend is running
 app.get('/', (req, res) => {
