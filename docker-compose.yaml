@@ -9,7 +9,7 @@ services:
     ports:
       - "3050:80"
   api:
-    image: arbaazij/backend_ng
+    build: ./backend
     ports:
       - "5000:5000"
     depends_on:

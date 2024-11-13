@@ -16,6 +16,13 @@ spec:
           image: 977099003828.dkr.ecr.us-east-1.amazonaws.com/arbaazij/back-ng:latest
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,3 +42,10 @@ spec:
           image: 977099003828.dkr.ecr.us-east-1.amazonaws.com/arbaazij/front-ng:latest
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"

@@ -1,0 +1,9 @@
+addons:
+  - name: vpc-cni
+    version:  v1.18.6-eksbuild.1
+    attachPolicyARNs:
+      - arn:aws:iam::977099003828:policy/AmazonEKS_CNI_Policy
+    PodIdentityAssociations:
+      - namespace: kube-system
+        serviceAccount: aws-node
+        identityARN: arn:aws:iam::977099003828:role/node_cni_policy
